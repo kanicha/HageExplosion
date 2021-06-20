@@ -18,24 +18,24 @@ public class HageController : MonoBehaviour
 
     private void Start()
     {
-        // ƒT[ƒ`‚µ‚ÄŒÄ‚Ño‚µ
+        // ã‚µãƒ¼ãƒã—ã¦å‘¼ã³å‡ºã—
         gameManager = GameObject.Find("GameManager");
         gm = gameManager.GetComponent<GameManager>();
     }
 
     private void HageDestroy()
     {
-        // ƒnƒQ‚ÌÀ•W‚Æ”š”­effect”­¶ƒ|ƒWƒVƒ‡ƒ““¯Šú
+        // ãƒã‚²ã®åº§æ¨™ã¨çˆ†ç™ºeffectç™ºç”Ÿãƒã‚¸ã‚·ãƒ§ãƒ³åŒæœŸ
         explosionPos = this.transform.position;
         explosionPos.y += 1;
 
-        // ƒGƒ“ƒ^[ƒL[‚ğ‰Ÿ‚³‚ê‚½‚ç
+        // ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼ã‚’æŠ¼ã•ã‚ŒãŸã‚‰
         if (Input.GetKeyDown(KeyCode.Return))
         {
             gm.isGenerate = true;
-            // ”š”­!!!!!!!!!!!
+            // çˆ†ç™º!!!!!!!!!!!
             Instantiate(ExplosionEffects,explosionPos,Quaternion.identity);
-            // ƒnƒQíœ
+            // ãƒã‚²å‰Šé™¤
             Destroy(this);
         }
     }

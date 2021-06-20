@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     // スコア
     private int hageScore = 0;
+    [SerializeField] private Text hageScoreText;
 
     // Start is called before the first frame update
     void Awake()
@@ -49,13 +51,14 @@ public class GameManager : MonoBehaviour
     void HageScoreManager()
     {
 
+        // スコア倍率設定
         if (hageScore >= 20000)
         {
-            hageScore += 3000;
+            hageScore += 3873;
         }
         else if (hageScore >= 5000)
         {
-            hageScore += 1000;
+            hageScore += 1358;
         }
         else if (hageScore >= 1000)
         {
@@ -69,5 +72,8 @@ public class GameManager : MonoBehaviour
         {
             hageScore += 20;
         }
+        
+        // スコアを文字表示
+        hageScoreText.text = hageScore.ToString();
     }
 }
