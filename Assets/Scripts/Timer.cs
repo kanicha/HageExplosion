@@ -7,21 +7,22 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]
     private Text text;
-    private float totaltime = 11f;
-    private int _timerCount = 0;
+    private float totaltime = 10f;
+    private float _timerCount = 0;
 
     public bool TimerCount(bool timerStop = false)
     {
         totaltime -= Time.deltaTime;
-        _timerCount = (int)totaltime;
+        _timerCount = totaltime;
 
-        if (_timerCount <= -1)
+        if (_timerCount <= 0)
         {
+            _timerCount = 0;
             timerStop = true;
         }
         else
         {
-            text.text = _timerCount.ToString() ;
+            text.text = _timerCount.ToString("N1") ;
         }
 
         return timerStop;

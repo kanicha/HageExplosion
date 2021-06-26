@@ -6,6 +6,7 @@ public class HageController : MonoBehaviour
 {
     private GameObject gameManager;
     private GameManager gm = null;
+    private Timer timer;
     GameObject _exprosion;
     [SerializeField] GameObject ExplosionEffects;
     private Vector3 explosionPos = Vector3.zero;
@@ -21,6 +22,7 @@ public class HageController : MonoBehaviour
         // サーチして呼び出し
         gameManager = GameObject.Find("GameManager");
         gm = gameManager.GetComponent<GameManager>();
+        timer = gameManager.GetComponent<Timer>();
     }
 
     private void HageDestroy()
@@ -34,9 +36,10 @@ public class HageController : MonoBehaviour
         {
             gm.isGenerate = true;
             // 爆発!!!!!!!!!!!
+            if (!timer.TimerCount())
             _exprosion = Instantiate(ExplosionEffects, explosionPos, Quaternion.identity);
 
-            Destroy(_exprosion, 2);
+            Destroy(_exprosion, 1);
         }
     }
 }

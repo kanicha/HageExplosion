@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ModelRoot;
     [SerializeField] GameObject HageOriginal;
     [SerializeField] GameObject Hage;
+    Button button;
+    GameObject buttonType;
+    GameObject hageClone;
     private Vector3 hagePos = Vector3.zero;
 
     // ê∂ê¨ä«óùÉtÉâÉO
@@ -18,6 +21,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        buttonType = GameObject.Find("Button");
+        button = buttonType.GetComponent<Button>();
+
         hagePos = HageOriginal.transform.position;
     }
 
@@ -32,25 +38,28 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void HageCreate()
     {
-        timer.TimerCount();
-
-        if (isGenerate && !timer.TimerCount())
+        if (button.OnClickStart())
         {
-            if (HageOriginal.active)
+            timer.TimerCount();
+
+            if (isGenerate && !timer.TimerCount())
             {
-                HageOriginal.SetActive(false);
+                if (HageOriginal.active)
+                {
+                    HageOriginal.SetActive(false);
+                }
+
+                score.HageScoreManager();
+
+
+                hageClone = Instantiate(Hage, hagePos, Quaternion.identity);
+                hageClone.transform.parent = ModelRoot.transform;
+
+
+                Destroy(hageClone, 1);
+
+                isGenerate = false;
             }
-
-            score.HageScoreManager();
-
-            GameObject hageClone = Instantiate(Hage,hagePos,Quaternion.identity);
-            hageClone.transform.parent = ModelRoot.transform;
-
-            Destroy(hageClone ,2);
-
-            isGenerate = false;
         }
     }
-
-
 }
