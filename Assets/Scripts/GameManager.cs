@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Score score = null;
+    [SerializeField] Timer timer = null;
     [SerializeField] GameObject ModelRoot;
     [SerializeField] GameObject HageOriginal;
     [SerializeField] GameObject Hage;
@@ -12,10 +14,6 @@ public class GameManager : MonoBehaviour
 
     // 生成管理フラグ
     public bool isGenerate = false;
-
-    // スコア
-    private int hageScore = 0;
-    [SerializeField] private Text hageScoreText;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,46 +32,25 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void HageCreate()
     {
-        if (isGenerate)
+        timer.TimerCount();
+
+        if (isGenerate && !timer.TimerCount())
         {
-            HageScoreManager();
+            if (HageOriginal.active)
+            {
+                HageOriginal.SetActive(false);
+            }
+
+            score.HageScoreManager();
 
             GameObject hageClone = Instantiate(Hage,hagePos,Quaternion.identity);
             hageClone.transform.parent = ModelRoot.transform;
-            
+
+            Destroy(hageClone ,2);
+
             isGenerate = false;
         }
     }
 
-    /// <summary>
-    /// スコア生成関数
-    /// </summary>
-    void HageScoreManager()
-    {
 
-        // スコア倍率設定
-        if (hageScore >= 20000)
-        {
-            hageScore += 3873;
-        }
-        else if (hageScore >= 5000)
-        {
-            hageScore += 1358;
-        }
-        else if (hageScore >= 1000)
-        {
-            hageScore += 500;
-        }
-        else if (hageScore >= 100)
-        {
-            hageScore += 200;
-        }
-        else if (hageScore <= 99)
-        {
-            hageScore += 20;
-        }
-        
-        // スコアを文字表示
-        hageScoreText.text = hageScore.ToString();
-    }
 }

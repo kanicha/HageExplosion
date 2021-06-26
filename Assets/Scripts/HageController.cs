@@ -6,7 +6,7 @@ public class HageController : MonoBehaviour
 {
     private GameObject gameManager;
     private GameManager gm = null;
-
+    GameObject _exprosion;
     [SerializeField] GameObject ExplosionEffects;
     private Vector3 explosionPos = Vector3.zero;
 
@@ -34,9 +34,9 @@ public class HageController : MonoBehaviour
         {
             gm.isGenerate = true;
             // 爆発!!!!!!!!!!!
-            Instantiate(ExplosionEffects,explosionPos,Quaternion.identity);
-            // ハゲ削除
-            Destroy(this);
+            _exprosion = Instantiate(ExplosionEffects, explosionPos, Quaternion.identity);
+
+            Destroy(_exprosion, 2);
         }
     }
 }
