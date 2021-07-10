@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         hagePos = HageOriginal.transform.position;
+                            
+        // ƒXƒRƒA‰Šú‰»
+        Score._hageScore = 0;
     }
 
     // Update is called once per frame
