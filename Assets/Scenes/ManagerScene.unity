@@ -164,6 +164,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfd9f4f9b85dc31439acee5f2aa57fad, type: 3}
   - {fileID: 8300000, guid: 502923a3721257448abebc04d2c5d041, type: 3}
   - {fileID: 8300000, guid: 4c8aefc0354ba7748bc45085523a51ed, type: 3}
+  - {fileID: 8300000, guid: 725945fd0ed80ba43ac02a2df8240a13, type: 3}
   Voice: []
 --- !u!4 &1319894619
 Transform:
