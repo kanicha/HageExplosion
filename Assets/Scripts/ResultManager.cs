@@ -8,6 +8,11 @@ public class ResultManager : MonoBehaviour
 {
     [SerializeField] Text ScoreText;
 
+    void Start()
+    {
+        ResultScorePlaySE();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +20,26 @@ public class ResultManager : MonoBehaviour
         SceneChanger();
     }
 
+    void ResultScorePlaySE()
+    {
+        if (Score._hageScore >= 120000)
+        {
+            SoundManager.Instance.PlaySE(1);
+        }
+        else if (Score._hageScore >= 80000)
+        {
+            SoundManager.Instance.PlaySE(2);
+        }
+        else if (Score._hageScore >= 50000)
+        {
+            SoundManager.Instance.PlaySE(3);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySE(4);
+        }
+    }
+    
     void ResultScore()
     {
         ScoreText.text = Score._hageScore.ToString();
@@ -22,7 +47,7 @@ public class ResultManager : MonoBehaviour
 
     void SceneChanger()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
             SceneManager.LoadScene("TitleScene");
     }
 }

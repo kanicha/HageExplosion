@@ -155,13 +155,15 @@ MonoBehaviour:
   volume:
     BGM: 1
     Voice: 1
-    SE: 1
+    SE: 0.5
     Mute: 0
   BGM: []
   SE:
   - {fileID: 8300000, guid: 99710da2c6a38e54598f0112f75176e4, type: 3}
-  - {fileID: 8300000, guid: 209dd884a5a27e748ab89e98cefa162c, type: 3}
-  - {fileID: 8300000, guid: 1ad42c26a77d0c64bb46e8e8f7ef5a53, type: 3}
+  - {fileID: 8300000, guid: 52d59f2bf215197409fc62e982ab38a4, type: 3}
+  - {fileID: 8300000, guid: cfd9f4f9b85dc31439acee5f2aa57fad, type: 3}
+  - {fileID: 8300000, guid: 502923a3721257448abebc04d2c5d041, type: 3}
+  - {fileID: 8300000, guid: 4c8aefc0354ba7748bc45085523a51ed, type: 3}
   Voice: []
 --- !u!4 &1319894619
 Transform:

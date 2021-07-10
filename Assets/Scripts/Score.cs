@@ -7,18 +7,18 @@ public class Score : MonoBehaviour
 {
     [SerializeField] private Text hageScoreText;
 
-    // ƒXƒRƒA
+    // ã‚¹ã‚³ã‚¢
     public static int _hageScore = 0;
 
 
     /// <summary>
-    /// ƒXƒRƒA¶¬ŠÖ”
+    /// ã‚¹ã‚³ã‚¢ç”Ÿæˆé–¢æ•°
     /// </summary>
     public void HageScoreManager()
     {
 
-        // ƒXƒRƒA”{—¦İ’è
-        if (_hageScore >= 20000)
+        // ã‚¹ã‚³ã‚¢å€ç‡è¨­å®š
+        if (_hageScore >= 13000)
         {
             _hageScore += 3873;
         }
@@ -39,7 +39,7 @@ public class Score : MonoBehaviour
             _hageScore += 20;
         }
 
-        // ƒXƒRƒA‚ğ•¶š•\¦
+        // ã‚¹ã‚³ã‚¢ã‚’æ–‡å­—è¡¨ç¤º
         hageScoreText.text = _hageScore.ToString();
     }
 }
