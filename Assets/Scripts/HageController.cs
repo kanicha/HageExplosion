@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class HageController : MonoBehaviour
 {
+    [SerializeField] GameObject ExplosionEffects;
+
     private GameObject gameManager;
     private GameManager gm = null;
     private Timer timer;
-    GameObject _exprosion;
-    [SerializeField] GameObject ExplosionEffects;
     private Vector3 explosionPos = Vector3.zero;
+    GameObject _exprosion;
 
     // Update is called once per frame
     void Update()
@@ -37,8 +38,11 @@ public class HageController : MonoBehaviour
             gm.isGenerate = true;
             // 爆発!!!!!!!!!!!
             if (!timer.TimerCount())
-            _exprosion = Instantiate(ExplosionEffects, explosionPos, Quaternion.identity);
-
+            {
+                _exprosion = Instantiate(ExplosionEffects, explosionPos, Quaternion.identity);
+                SoundManager.Instance.PlaySE(0);
+            }
+            
             Destroy(_exprosion, 1);
         }
     }

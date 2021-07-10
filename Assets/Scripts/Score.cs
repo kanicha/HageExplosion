@@ -8,7 +8,8 @@ public class Score : MonoBehaviour
     [SerializeField] private Text hageScoreText;
 
     // スコア
-    private int _hageScore = 0;
+    public static int _hageScore = 0;
+
 
     /// <summary>
     /// スコア生成関数
