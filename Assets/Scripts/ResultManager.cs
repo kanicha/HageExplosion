@@ -22,11 +22,11 @@ public class ResultManager : MonoBehaviour
 
     void ResultScorePlaySE()
     {
-        if (Score._hageScore >= 120000)
+        if (Score._hageScore >= 150000)
         {
             SoundManager.Instance.PlaySE(1);
         }
-        else if (Score._hageScore >= 80000)
+        else if (Score._hageScore >= 100000)
         {
             SoundManager.Instance.PlaySE(2);
         }
