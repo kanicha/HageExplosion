@@ -22,7 +22,7 @@ public class ResultManager : MonoBehaviour
 
     void ResultScorePlaySE()
     {
-        if (Score._hageScore >= 1000000)
+        if (Score._hageScore >= 500000)
         {
             SoundManager.Instance.PlaySE(6);
         }
@@ -51,6 +51,9 @@ public class ResultManager : MonoBehaviour
 
     void SceneChanger()
     {
+        // スコア初期化
+        Score._hageScore = 0;
+        
         if (Input.GetKeyDown(KeyCode.Space))
             SceneManager.LoadScene("TitleScene");
     }
